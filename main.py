@@ -441,7 +441,7 @@ def record_search():
         if mobileno:
             otpgenerated = rand_pass(5)
             print(otpgenerated)
-            authkey = "267368ANbjR9YCbb85c89f6b7" # Your authentication key.
+            authkey = "##" # Your authentication key.
 
             mobiles = str(mobileno['mobileno']) # Multiple mobiles numbers separated by comma.
 

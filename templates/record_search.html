@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static',filename='css/base_style.css')}}" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<link href="{{url_for('static',filename='css/record_search_style.css')}}" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" ></script>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+			{% if mobileNo %}
+
+
+					<div class="container-fluid" >
+
+										<div class="row" style="margin-top:100px;">
+											<div class="col-md-6 col-md-offset-3">
+												<div class="card" >
+													<div class="card-header text-center"> <b>An OTP has been send to Your Registered Mobile no. </b>
+													</div>
+													<div class="card-body" >
+														<form action="/records" id="otpcheck" method="post">
+															<div class="form-group">
+																<label for="otp">Enter OTP</label>
+																<input type="text" class="form-control" name="otpEntered" id="otp">
+															  </div>
+															<input id="aadharno" name="aadharNo" type="hidden" value="{{aadharNo}}">
+															<input id="mobileNo" name="mobileNo" type="hidden" value="{{mobileNo}}">
+															<input id="otpgenerated" name="otpgenerated" type="hidden" value="{{otpgenerated}}">
+															<button type="submit" class="btn btn-primary">Submit</button>
+														</form>
+													</div><br><br>
+													<div class="card-footer text-center" ><b><h4>OTP expires after 15 minutes..</h4> <sup>**</sup>Please provide the OTP you received on your mobile number.. </b></div>
+												</div>
+											</div>
+										</div>
+					</div>
+
+			{% else %}
+
+							<form method="post" id="aadaharcheck" action="/record_search">
+									<div class="search-box">
+										<input type="text" class="search-txt" data-type="adhaar-number" maxLength="19" id="aadharsearch" name="aadharsearch" placeholder="Enter Aadhar No." onblur="AadharValidate()" required="">
+
+										<button class="search-btn"  >
+											<i class="fas fa-search"></i>
+										</button>
+									</div>
+							</form>
+							<script type="text/javascript">
+											$('[data-type="adhaar-number"]').keyup(function() {
+												  var value = $(this).val();
+												  value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join("");
+												  $(this).val(value);
+												});
+
+												$('[data-type="adhaar-number"]').on("change, blur", function() {
+												  var value = $(this).val();
+												  var maxLength = $(this).attr("maxLength");
+												  if (value.length != maxLength) {
+													$(this).addClass("highlight-error");
+												  } else {
+													$(this).removeClass("highlight-error");
+												  }
+												});
+							</script>
+
+
+
+			{% endif %}
+
+{% endblock %}
+
+

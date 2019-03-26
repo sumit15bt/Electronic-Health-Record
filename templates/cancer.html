@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+	<div  class="row">
+        <div class="col-lg-6"></div>
+        </div>
+		<div class="col-lg-6" style="color: blue;background: grey">
+			<center>
+			{% if predicted %}
+			    <h2>After analzing  your Given Answer<conditions></conditions> <br>detected cancer status is </h2><h1 style="color:red;">"{{ predicted[0] }}"</h1>
+			{%  else %}
+			    {% endif %}
+
+
+					<form action="/cancer" method="POST">
+
+					  1.Enter your age<br>
+					  <input type="number" name="age" value="age" required="">
+					  <br><br><br>
+					  2.Enter your gender<br>
+					  <select  class="custom-select" name="gender">
+						<option value="1">Male</option>
+						<option value="2">Female</option>
+					  </select>
+					  <br><br><br>
+					  3.Enter the level of air pollution in your surroundings<br>
+					  <select  class="custom-select" name="values">
+					    <option value="1">Lowest</option>
+					    <option value="2">Lower</option>
+					    <option value="3">Moderate Low</option>
+					    <option value="4">Moderate High</option>
+					    <option value="5">Higher</option>
+					    <option value="6">Highest</option>
+					    <option value="7">Worst</option>
+					  </select>
+					<br><br><br>
+					  4.Enter the amount of your alcohol consumption<br>
+					 <select  class="custom-select" name="values1">
+					    <option value="1">No alcohol</option>
+					    <option value="2">once a year</option>
+					    <option value="3">monthly</option>
+					    <option value="4">weakend</option>
+					    <option value="5">Early Stages of Alcoholism</option>
+					    <option value="6">Mid  Stages of Alcoholism</option>
+					    <option value="7">Addicted</option>
+					 </select>
+					<br><br><br>
+					  5.Enter the level of dust allergy you suffer from<br>
+					 <select  class="custom-select" name="values2">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  6.Enter the level of occupational hazards you face<br>
+					 <select  class="custom-select" name="values3">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  7.Rate the amount of genetic risk<br>
+					 <select  class="custom-select" name="values4">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  8.Enter the level of chronic lung disease you face<br>
+					 <select  class="custom-select" name="values5">
+					    <option value="1">Mildest</option>
+					    <option value="2">Mild</option>
+					    <option value="3">Moderate satge 1</option>
+					    <option value="4">Moderate satge 2</option>
+					    <option value="5">Severe stage 1</option>
+					    <option value="6">Severe stage 2</option>
+					    <option value="7">Very Severe</option>
+					  </select>
+					<br><br><br>
+					  9.Rate your diet<br>
+					 <select  class="custom-select" name="values6">
+					    <option value="1">Fruits and Juices </option>
+					    <option value="2">Fruits And Vegetables</option>
+					    <option value="3">Fruits, Vegetables and Junk Food </option>
+					    <option value="4">Fruits, Vegetables, Junk Food  and egg </option>
+					    <option value="5">Fruits, Vegetables, Junk Food  and non Veg. </option>
+					    <option value="6">Fruits, Vegetables, Junk Food egg and Alcohol </option>
+					    <option value="7">Fruits, Vegetables, Junk Food non Veg. and Alcohol</option>
+					  </select>
+					<br><br><br>
+					  10.Enter the level of obesity<br>
+					 <select  class="custom-select" name="values7">
+					    <option value="1">normal weight</option>
+					    <option value="2">Moderate high</option>
+					    <option value="3">Overweight</option>
+					    <option value="4">Class I Obesity</option>
+					    <option value="5">Class II Obesity</option>
+					    <option value="6">Class III Obesity</option>
+					    <option value="7">Highest</option>
+					  </select>
+					<br><br><br>
+					  11.Enter the level of smoking<br>
+					 <select  class="custom-select" name="values8">
+					    <option value="1">No Smoking</option>
+					    <option value="2">Once a Year </option>
+					    <option value="3">Once a month</option>
+					    <option value="4">1 cigarettes/day</option>
+					    <option value="5">1 to 4 cigarettes/day</option>
+					    <option value="6">5 to 10 cigarettes/day</option>
+					    <option value="7"> more than 10 cigarettes/day</option>
+					  </select>
+					<br><br><br>
+					  12.Enter the level of passive smoking<br>
+					 <select  class="custom-select" name="values9">
+					    <option value="1">No Smoking</option>
+					    <option value="2">Once a Year </option>
+					    <option value="3">Once a month</option>
+					    <option value="4">1 cigarettes, cigars, or pipes/day</option>
+					    <option value="5">1 to 4 cigarettes, cigars, or pipes/day</option>
+					    <option value="6">5 to 10 cigarettes, cigars, or pipes/day</option>
+					    <option value="7">more than 10 cigarettes, cigars, or pipes/day</option>
+					  </select>
+					<br><br><br>
+					  13.How often do you have the problem of chest pain<br>
+					 <select  class="custom-select" name="values10">
+					    <option value="1">No Problem</option>
+					    <option value="2">Mild  Primary</option>
+					    <option value="3">Moderate Primary</option>
+					    <option value="4">Severe Primary</option>
+					    <option value="5">Mild  High</option>
+					    <option value="6">Moderate High</option>
+					    <option value="7">Highly Severe</option>
+					  </select>
+					<br><br><br>
+					  14.How often do you have the problem of coughing blood<br>
+					 <select  class="custom-select" name="values11">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  15.Rate the level of fatigueness<br>
+					 <select  class="custom-select" name="values12">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  16.Rate the weight loss in your body<br>
+					 <select  class="custom-select" name="values13">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  17.How often do you experience shortness of breath<br>
+					 <select  class="custom-select" name="values14">
+					    <option value="1">No breathless</option>
+					    <option value="2">get breathless with strenuous exercise</option>
+					    <option value="3">short of breath when hurrying on level ground or walking up a slight hill</option>
+					    <option value="4">walk slower than people of the same age because of breathlessness or have to stop for breath when walking at my own pace</option>
+					    <option value="5">stop for breath after walking about 100 yards or after a few minutes on level ground</option>
+					    <option value="6">breathless to leave the house/when dressing</option>
+					    <option value="7">Severe</option>
+					  </select>
+					<br><br><br>
+					  18.How often have u noticed wheezing<br> <!--sound-->
+					 <select  class="custom-select" name="values15">
+					    <option value="1">No wheezing</option>
+					    <option value="2">Sometimes</option>
+					    <option value="3">Intermittent</option>
+					    <option value="4">Mild</option>
+					    <option value="5">Moderate</option>
+					    <option value="6">Severe</option>
+					    <option value="7">Highly Severe</option>
+					  </select>
+					<br><br><br>
+					  19.Enter the level of difficulty you feel during swallowing food<br>  <!--to enclose or envelop completely-->
+					 <select  class="custom-select" name="values16">
+					    <option value="1">Level 1</option>
+					    <option value="2">Level 2</option>
+					    <option value="3">Level 3</option>
+					    <option value="4">Level 4</option>
+					    <option value="5">Level 5</option>
+					    <option value="6">Level 6</option>
+					    <option value="7">Level 7</option>
+					  </select>
+					<br><br><br>
+					  20.How often do you notice clubbing of finger nails<br>
+					 <select  class="custom-select" name="values17">
+					    <option value="1">No clubbing</option>
+					    <option value="2">No visible clubbing</option>
+					    <option value="3">Mild clubbing</option>
+					    <option value="4">Moderate Low clubbing</option>
+					    <option value="5">Moderate High clubbing</option>
+					    <option value="6">Gross clubbing</option>
+					    <option value="7">Severe clubbing</option>
+					  </select>
+					<br><br><br>
+					  21.How frequently do you have cold<br>
+					 <select  class="custom-select" name="values18">
+					    <option value="1">Once a year</option>
+					    <option value="2">Once a half year</option>
+					    <option value="3">Once a quaterly</option>
+					    <option value="4">Once a month</option>
+					    <option value="5">Once a 15 days</option>
+					    <option value="6">weakly</option>
+					    <option value="7">Always</option>
+					  </select>
+					<br><br><br>
+					  22.How frequently do you have dry cough<br>
+					 <select  class="custom-select" name="values19">
+					    <option value="1">Once a year</option>
+					    <option value="2">Once a half year</option>
+					    <option value="3">Once a quaterly</option>
+					    <option value="4">Once a month</option>
+					    <option value="5">Once a 15 days</option>
+					    <option value="6">weakly</option>
+					    <option value="7">Always</option>
+					  </select>
+					<br><br><br>
+					  23.Rate the level of snorings<br> <!--to breathe during sleep with a rough hoarse noise due to vibration of the soft palate-->
+					 <select  class="custom-select" name="values20">
+					    <option value="1">Never</option>
+					    <option value="2">When very Tired</option>
+					    <option value="3">Intermittend</option>
+					    <option value="4">Mild</option>
+					    <option value="5">Moderate</option>
+					    <option value="6">Always</option>
+					    <option value="7">Always  with high sound</option>
+					  </select>
+					<br><br><br>
+					<button class="btn btn-primary btn-block" type="submit">Submit</button>
+				</form>
+
+			</center>
+
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

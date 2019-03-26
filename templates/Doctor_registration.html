@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static',filename='css/base_style.css')}}" rel="stylesheet">
+	<!--link href="{{url_for('static',filename='css/registeration.css')}}" rel="stylesheet"-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        body{
+                margin:0;
+                padding:0;
+                font-family:sans-serif;
+                background: #34495e;
+            }
+
+        .box{
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 400px;
+                padding: 30px;
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0,0,0,.5);
+                border-radius: 20px;
+            }
+    </style>
+
+    <!--script>
+         function myFunction(){
+         	var PractisionerNo=document.getElementById("PractisionerNo").value;
+         	if (PractisionerNo!=6) {
+         		document.getElementById("Error_message").innerHtml="Id is of 6 digits !!";
+         		return false;
+         	}
+         	var username_exp= /^[A-Za-z]+[0-9]+[A-Za-z]*/;
+         	var username=document.getElementById("username").value;
+         	if(username.length() < 5){
+         		document.getElementById("Error_message").innerHtml="Username must be > 5 digits !!";
+         		return false;
+         	}
+         	if(username.match(username_exp))
+         		return true;
+         	else{
+         		document.getElementById("Error_message").innerHtml="Username must Alphabet And Numbers";
+         		return false;
+         	}
+
+         	var Email=document.getElementById("Email").value;
+         	if(Email.indexOf('@')<=0){
+         		document.getElementById("Error_message").innerHtml="Invalid @ position";
+         		return false;
+         	}
+         	if((Email.charAt(Email.length-4)!='.') &&( Email.charAt(Email.length-3)!='.')){
+         		document.getElementById("Error_message").innerHtml="Invalid Email ";
+         		return false;
+         	}
+
+         	var MobileNo=document.getElementById("MobileNo").value;
+         	if(isNaN(MobileNo)){
+         		document.getElementById("Error_message").innerHtml="Only Numbers allowed";
+         		return false;
+         	}
+         	if(MobileNo.length==10)
+         		return true;
+         	else{
+         		document.getElementById("Error_message").innerHtml="must be of 10 digits";
+         		return false;
+         	}
+
+
+
+
+         }
+    </script-->
+
+{% endblock %}
+{% block body %}
+
+        <!--div class="container " background="{{url_for('static',filename='images/bg1.jpg')}}"-->
+        <div class="container " >
+            <div class="row">
+                <div class="col-lg-3" ></div>
+                <div class="col-lg-6 box" style="background:#0f4736; color:white;">
+                    <h1>Register</h1>
+                      {% from "includes/_formhelpers.html" import render_field %}
+                      <form method="POST" action="">
+                        <div class="form-group">
+                          {{render_field(form.PractisionerNo, class_="form-control")}}
+                        </div>
+                        <div class="form-group">
+                          {{render_field(form.username, class_="form-control")}}
+                        </div>
+                        <div class="form-group">
+                          {{render_field(form.email, class_="form-control")}}
+                        </div>
+
+                        <div class="form-group">
+                          {{render_field(form.password, class_="form-control")}}
+                        </div>
+                        <div class="form-group">
+                          {{render_field(form.confirm, class_="form-control")}}
+                        </div>
+                        <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+                      </form>
+                </div>
+                <div class="col-lg-3" ></div>
+            </div>
+        </div>
+
+{% endblock %}

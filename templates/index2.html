@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ELECTRONIC HEALTH RECORD</title>
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+
+  <!--  CSS - Includes Bootstrap -->
+  <link href="{{url_for('static',filename='css/creative.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='css/customize.css')}}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static',filename='css/base_style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" ></script>
+
+    <!--  for map contact info --->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+ 	 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" style="font-family: 'Satisfy', cursive;color:#71dc3f;" href="#page-top"> Electronic Health Record &nbsp; </a>
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link " href="#about">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#Bcancer">Biopsy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#bmi">BMI</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold" >No hesitation, full medication</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <h4 class="mb-5" style="font-family: 'Satisfy', cursive;color:white;text-size">This plateform can give you better approach to view and analyze the medical history  </h4>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="/homealone"><span class="glyphicon glyphicon-log-in"></span>Navigate to Records </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary" id="about">
+      <br><br><br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 style="font-family: 'Satisfy', cursive;color:white;">About this platform</h1>
+          <hr class="divider light my-4">
+          <p class="text-white-75 mb-4" id="formargin">It is a secure, consolidated collection of a patient’s medical history. It provides a visual comprehensive medical report of patients, making it easier for health professionals to find relevant medical information in real-time, improving the quality of health care.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Services Section -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">At Your Service</h2>
+      <hr class="divider my-4">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a href="#" ><i class="fas fa-4x fa-laptop-medical text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Medical history</h3></a>
+            <p class="text-muted mb-0">it provide the detailed report of medical history and diagnosis</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a href="#" ><i class="fas fa-4x fa-stethoscope text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Prediction</h3></a>
+            <p class="text-muted mb-0">It faciliates the users to check weather they are suffering from grave diseases or are on the verge of it</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a href="/homealone" ><i class="fas fa-4x fa-edit text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Doctor post</h3></a>
+            <p class="text-muted mb-0">for the welfare of the patient the doctors regularly add some post to aware them about their respective disease</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a href="#" ><i class="fas fa-4x fa-question-circle text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Q/A</h3></a>
+            <p class="text-muted mb-0">every patient can question their respective doctor to whom they are getting diagnosed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Contact Breast-Cancer -->
+  <section class="page-section" id="Bcancer" style="background:#003566; color:white;padding:10px">
+      <br><br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="mt-0">Breast Cancer</h1>
+          <hr class="light my-2">
+
+          <p class="text-muted mb-5"> </p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+
+
+                <form method=post action="" >
+                <table >
+                      {% for field in form %}
+                          <tr>
+                          <td >{{ field.label }}</td>&nbsp;<td>{{ field }}</td>
+                          </tr>
+                      {% endfor %}
+                </table>
+                  <br/>
+                <center><input type=submit class="btn btn-primary " id="button2" value=Compute></center>
+                    <br>
+                </form>
+
+      </div>
+
+      <div class="row justify-content-center" style="">
+                <p align="center" >
+                    {% if result[0] != None %}
+                <p><h5>Tumor is  &nbsp;</h5> <h4>{{result[0]}}</h4></b> </p>
+                <p><h5>&nbsp;Accuracy is&nbsp;</h5> <h4>{{result[1]}}</h4> </p>
+
+                    {% endif %}
+                </p>
+                {% if result[0] == "BENIGN"%}
+                    <div class="row">
+                        <i class="far fa-grin fa-3x mb-3" style="color:white;"></i>&nbsp &nbsp
+
+                        <p style="font-family: serif;">You are Safe :) Read more about it below. and check out the instructions</p>
+                    </div>
+
+                    <div class="text-info" style="font-family: serif;">
+                        <h3><b><i><u>{{result[0]}}</u></i></b> tumor :: Non-Cancerous Cells</h3><br>
+                        If the cells are not cancerous, the tumor is benign.
+                      It won't invade nearby tissues or spread to other areas of the body (metastasize).
+                      A benign tumor is less worrisome unless it is pressing on nearby tissues, nerves, or blood vessels and causing damage.
+                      Fibroids in the uterus or lipomas are examples of benign tumors. Benign tumors may need to be removed by surgery.
+                      They can grow very large, sometimes weighing pounds.
+                      They can be dangerous, such as when they occur in the brain and crowd the normal structures in the enclosed space of the skull.
+                      They can press on vital organs or block channels. Also, some types of benign tumors such as intestinal polyps are considered precancerous and are removed to prevent them becoming malignant.
+                      Benign tumors usually don't recur once removed, but if they do it is usually in the same place.
+                    </div>
+                {% elif result[0] == "MALIGNANT"%}
+                    <div class="row">
+                        <i class="far fa-flushed fa-3x mb-3 " style="color:white;"></i>&nbsp &nbsp
+                        <!--img class="img-circle" src="{{url_for('static', filename='images/malignant.jpeg',width=50,height=50)}}" style="border-radius: 30%;" /-->
+                        <p style="font-family: serif;">Don't Worry :) Read more about it below. and check out the instructions <!--a href="/preventivemeasures">here</a--></p>
+                    </div>
+
+
+                    <div class="text-danger" style="font-family: serif;">
+                        <h3><b><i><u>{{result[0]}}</u></i></b> tumor :: Cancerous Cells</h3><br>
+                        Malignant means that the tumor is made of cancer cells and it can invade nearby tissues.
+                      Some cancer cells can move into the bloodstream or lymph nodes, where they can spread to other tissues within the body—this is called metastasis.
+                      Cancer can occur anywhere in the body including the breast, intestines, lungs, reproductive organs, blood, and skin.
+                      For example, breast cancer begins in the breast tissue and may spread to lymph nodes in the armpit if it's not caught early enough and treated.
+                      Once breast cancer has spread to the lymph nodes, the cancer cells can travel to other areas of the body, like the liver or bones.
+                      The breast cancer cells can then form tumors in those locations. A biopsy of these tumors might show characteristics of the original breast cancer tumor.
+                    </div>
+                {% endif %}
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- BMI Section -->
+  <section id="bmi" >
+      <br>
+              <div class="container-fluid" >
+                        <br><br><br>
+                        <div class="card" >
+                            <div class="card-header text-center"> BMI Calculator </div>
+                            <div class="card-body">
+
+                                <form class="w-50 m-auto"  onsubmit=" return false ">
+                                    <div class="form-group">
+                                        <label > Weight : </label>
+                                        <input type="text" name="weight" placeholder="Weight in Kg" id="weight" class="form-control" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label > Height : </label>
+                                        <input type="text" name="height" placeholder="Height in Ft" id="height" class="form-control" required="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-danger" name="BMI" value="CHEK BMI" onclick="getbmivalue()">
+                                    </div>
+                                </form>
+
+                                <script type="text/javascript">
+
+                                            function getbmivalue(){
+
+                                                    var weight=document.getElementById('weight');
+                                                    var height=document.getElementById('height');
+
+                                                    weight=parseFloat(weight.value);
+                                                    height=parseFloat(height.value);
+
+                                                    errormsg=""
+                                                    if(weight<=0){
+                                                        errormsg=errormsg + "Weight must be postive number \n";
+                                                    }
+                                                    if (height<0) {
+                                                        errormsg=errormsg+"Height must be postive number";
+                                                    }
+                                                    if (errormsg!="") {
+                                                        alert(errormsg)
+                                                    }
+                                                    // convert ft into inch
+                                                    height= height * 12;
+                                                    // heiht in meter
+                                                    height=height*0.025;
+
+                                                    var BMI=((weight)/(height*height));
+                                                    if(BMI){
+                                                        alert(Math.round(BMI))
+                                                    }
+                                            }
+
+                                    </script>
+
+                            </div>
+                            <div class="card-footer text-center" > A Healthy BMI ranges from 19 to 25 </div>
+
+                        </div>
+
+              </div>
+  </section>
+
+
+
+
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Support & Feedback !!</h2>
+          <hr class="divider my-4">
+
+          <p class="text-muted mb-5">If you need help, please contact us here !! </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center">
+          <i class="fas fa-phone fa-3x mb-6 text-muted"></i>
+          <br/>
+          <br/>
+          <div>+91-7376937255 <p style="color:#0e327c;"><b><i>Sidhart Shankar Singh</i></b></p></div>
+          <div>+91-8795889795 <p style="color:#0e327c;"><b><i>Anubhav Akash</i></b></p></div>
+          <div>+91-7545051352 <p style="color:#0e327c;"><b><i>Sumit Kumar</i></b></p></div>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+          <!-- Make sure to change the email address in anchor text AND the link below! -->
+          <a class="d-block" href="">contact@teamehr.com</a><br>
+          <a class="d-block" href="">zxcsidharth@gmail.com</a><br>
+          <a class="d-block" href="">anuAkash@gmail.com</a><br>
+          <a class="d-block" href="">15btcse065@mail.com</a>
+        </div>
+        <div class="col-lg-4" id="map">
+
+        </div>
+
+          <script type="text/javascript">
+              // The first parameter are the coordinates of the center of the map
+              // The second parameter is the zoom level
+              var map = L.map('map').setView([25.4046, 81.8402], 11);
+
+              // {s}, {z}, {x} and {y} are placeholders for map tiles
+              // {x} and {y} are the x/y of where you are on the map
+              // {z} is the zoom level
+              // {s} is the subdomain of cartodb
+                var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+              });
+
+                // It even opens up a popup when you click it!
+            L.marker([25.4046, 81.8402]).addTo(map)
+              .bindPopup("<strong>Shuats,Allahabad</strong>").openPopup();
+
+
+              // Now add the layer onto the map
+              map.addLayer(layer);
+        </script>
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="bg-light py-5">
+    <div class="container">
+      <div class="small text-center text-muted">Copyright &copy; 2019 - Electronic health record</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- Custom scripts for this template -->
+  <script src="{{url_for('static',filename='js/creative.js')}}"></script>
+
+</body>
+
+</html>
+

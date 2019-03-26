@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static',filename='css/base_style.css')}}" rel="stylesheet">
+	<link href="{{url_for('static',filename='css/login_style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+        <div class="container " >
+            <div class="row">
+                <div class="col-lg-3" ></div>
+                <div class="col-lg-6 box">
+                    <form class="box" action="" method="POST">
+
+                        <h1>Login</h1>
+                        <input type="text" name="username" placeholder="username" class="form-control" value={{request.form.username}} >
+                        <input type="password" name="password" placeholder="password" class="form-control" value={{request.form.password}} >
+
+                        <input type="submit" name="" value="Login">
+
+                    </form>
+                </div>
+                <div class="col-lg-3" ></div>
+            </div>
+        </div>
+
+
+
+{% endblock %}
+
+
+
+

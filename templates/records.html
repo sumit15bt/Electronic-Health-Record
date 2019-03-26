@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="record.css">
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static',filename='css/base_style.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/record.css')}}" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container " >
+            <div class="row">
+                <div class="col-lg-1" ></div>
+                <div class="col-lg-10 box">
+                	<h1>Health Record &nbsp<a class="btn btn-success" href="/add_record"> Add New Medical Visit </a></h1>
+                	<hr class="drop_shadow">
+                	<h1 align="center">Person Detail</h1>	
+                	<div class="container">
+                		<div class="row">
+                			<div class="col-lg-12">
+                				 <ul style="list-style-type:square;">
+									  <li>
+									  	<div class="form-group">
+											<label >Aadhar No :- </label>&nbsp &nbsp<span style="font-size:20px;color:blue;">{{ AllReports[0]['AadharNo'] }}</span>
+										</div>
+									  </li>
+									 <li>
+									  	<div class="form-group">
+											<label >Name :- </label>&nbsp &nbsp<span style="font-size:20px;color:blue;">{{ AllReports[0]['name'] }}</span>
+										</div>
+									  </li>
+									 <li>
+									  	<div class="form-group">
+											<label >Birth Date :- </label>&nbsp &nbsp<span style="font-size:20px;color:blue;"></span>
+										</div>
+									  </li>
+									 <li>
+									  	<div class="form-group">
+											<label >Phone Number :- </label>&nbsp &nbsp<span style="font-size:20px;color:blue;"></span>
+										</div>
+									  </li>
+									 <li>
+									  	<div class="form-group">
+											<label >Address :- </label>&nbsp &nbsp<span style="font-size:20px;color:blue;"></span>
+										</div>
+									  </li>
+
+								</ul> 
+                			</div>
+                		</div>
+                	</div>
+                	
+                	<hr class="flare">
+
+                	<div class="container">
+                		<div class="row">
+                			<div class="col-lg-10">
+                				 <table class="table table-hover">
+                				 	 <center><h4 style="color: BLUE">Medical Visits</h4>
+									 </center>
+			  						<thead>
+									    <tr><h4>
+									      <div class="container">
+											  <div class="row">
+												  <div class="col-sm-2">Attending Doctor</div>
+												  <div class="col-sm-2">Doctor's Practictioner No</div>
+												  <div class="col-sm-2">visit No</div>
+												  <div class="col-sm-2">Suffering</div>
+												  <div class="col-sm-2">Date & Time</div>
+												  <div class="col-sm-2"></div>
+											  </div>
+										  </div>
+
+									    </h4></tr>
+ 									 </thead>
+ 									 <tbody>
+
+										{% for Report in AllReports %}
+											<tr>
+
+												<div id="accordion">
+													  <div class="card">
+														<div class="card-header" id="headingTwo">
+														  <h5 class="mb-0">
+															<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{Report.sno}}" aria-expanded="false" aria-controls="collapseTwo">
+
+																<div class="container">
+																	  <div class="row">
+																		  <div class="col-sm-2">{{Report.DoctorName}}</div>
+																		  <div class="col-sm-2">{{Report.DocPracNo}}</div>
+																		  <div class="col-sm-2">{{Report.visitNo}}</div>
+																		  <div class="col-sm-2">{{Report.suffering}}</div>
+																		  <div class="col-sm-2">{{Report.time}}</div>
+																		  <div class="col-sm-2"><a href="edit_record/{{article.id}}" class="btn btn-danger">Edit</a></div>
+																	  </div>
+																  </div>
+															</button>
+
+
+														  </h5>
+														</div>
+														<div id="{{Report.sno}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+														  <div class="card-body" style="background:orange;color:white;">
+																<h1>{{Report}}</h1>
+														  </div>
+														</div>
+													  </div>
+													</div>
+											</tr>
+										{% endfor %}
+									  </tbody>
+								</table>
+                			</div>
+                		</div>
+                	</div>
+				</div>
+            <div class="col-lg-3" ></div>
+     </div>
+</div>
+	
+{% endblock %}

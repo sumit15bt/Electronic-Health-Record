@@ -1,0 +1,19 @@
+#formid{
+  color: #fff;
+  padding-bottom: 3rem;
+}
+.mt-7{
+	padding-top: 5rem !important;
+	color: #fff;
+
+}
+#button2{
+	border-radius: 22px;
+	background-color: #fff;
+	color: black;
+	width: 15rem;
+
+}
+#button2:hover{
+	background-color: #d9d9d9;
+}

@@ -20,9 +20,9 @@ password = rand_pass(5)
 print(password)
 
 
-authkey = "267368ANbjR9YCbb85c89f6b7" # Your authentication key.
+authkey = "" # Your authentication key.
 
-mobiles = "6392741843" # Multiple mobiles numbers separated by comma.
+mobiles = "" # Multiple mobiles numbers separated by comma.
 
 message = "Your OTP  is  {}".format(password) # Your message to send.
 
